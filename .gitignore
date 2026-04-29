@@ -1,0 +1,7 @@
+output/
+__pycache__/
+*.xlsx
+!assets/upload_datahub_template.xlsx
+.venv/
+venv/
+.DS_Store
