@@ -1,0 +1,33 @@
+{
+    "new_table_name": "plm_service_route",
+    "columns": [
+        {
+            "new_name": "route_id",
+            "description": "[Definition] Unique identifier for a service or production route configuration record. Serves as the primary key of the route table. [Sample Data] e.g. 'RT-2024-001', 'SR-N5-0042'"
+        },
+        {
+            "new_name": "part_id",
+            "description": "[Definition] Foreign key referencing the part master record that this service route is configured for. [Reference] References PLM_PART.PART_ID. [Sample Data] e.g. 'P-2024-001'"
+        },
+        {
+            "new_name": "fab_cd",
+            "description": "[Definition] Code identifying the fabrication facility (fab) where this service route operation is executed. [Reference] References FACTORY_MASTER.FACT_CODE. [Sample Data] e.g. 'FAB12', 'FAB18A'"
+        },
+        {
+            "new_name": "service_flow",
+            "description": "[Definition] Name of the service or production flow that this route belongs to, defining the high-level process sequence for the associated part. [Sample Data] e.g. 'LOGIC_N5_FLOW', 'BACKEND_ASSY'"
+        },
+        {
+            "new_name": "service_stage",
+            "description": "[Definition] Specific stage within the service flow at which this route step is performed, enabling granular process step traceability. [Sample Data] e.g. 'ETCH', 'CMP', 'FINAL_TEST'"
+        },
+        {
+            "new_name": "seq_no",
+            "description": "[Definition] Integer sequence number defining the execution order of this route stage within its service flow. Lower numbers execute first. [Sample Data] e.g. 1, 2, 10"
+        },
+        {
+            "new_name": "create_dt",
+            "description": "[Definition] Timestamp recording when this service route configuration record was first created. [Sample Data] e.g. 2024-02-01 10:00:00"
+        }
+    ]
+}

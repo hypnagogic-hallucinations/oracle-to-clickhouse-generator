@@ -1,0 +1,29 @@
+{
+    "new_table_name": "plm_mtn_log",
+    "columns": [
+        {
+            "new_name": "log_id",
+            "description": "[Definition] Unique identifier for each maintenance log entry, serving as the primary key of the maintenance change log. [Sample Data] e.g. 'LOG-2024-00001', 'MTN-0099234'"
+        },
+        {
+            "new_name": "part_id",
+            "description": "[Definition] Foreign key referencing the part master record that this maintenance log entry is associated with. [Reference] References PLM_PART.PART_ID. [Sample Data] e.g. 'P-2024-001'"
+        },
+        {
+            "new_name": "mtn_user",
+            "description": "[Definition] Employee code or login ID of the maintenance engineer responsible for performing or logging the maintenance action. [Reference] References EMPLOYEE_MASTER.EMP_CODE. [Sample Data] e.g. 'ENG001', 'JOHN.SMITH'"
+        },
+        {
+            "new_name": "action_type",
+            "description": "[Definition] Categorizes the type of maintenance action performed on the associated part. Allowable values: REPAIR, UPDATE, INSPECT. [Sample Data] e.g. 'REPAIR', 'INSPECT'"
+        },
+        {
+            "new_name": "log_desc",
+            "description": "[Definition] Free-text narrative describing the maintenance work performed, findings, or corrective actions taken during the maintenance event. [Sample Data] e.g. 'Replaced damaged substrate layer; re-tested OK'"
+        },
+        {
+            "new_name": "create_dt",
+            "description": "[Definition] Timestamp recording when this maintenance log entry was created in the system. [Sample Data] e.g. 2024-03-10 09:15:42"
+        }
+    ]
+}

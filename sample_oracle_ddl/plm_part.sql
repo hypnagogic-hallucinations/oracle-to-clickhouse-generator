@@ -7,6 +7,7 @@ CREATE TABLE plm_part (
     cust_part_no VARCHAR2(50),
     status       VARCHAR2(10)  DEFAULT 'ACTIVE',
     crea_date    DATE          DEFAULT SYSDATE NOT NULL,
+    updt_date    DATE          DEFAULT SYSDATE NOT NULL,
     CONSTRAINT pk_plm_part PRIMARY KEY (part_id)
 );
 
@@ -17,3 +18,4 @@ COMMENT ON COLUMN plm_part.tech_code IS 'Technology/Process Code';
 COMMENT ON COLUMN plm_part.part_desc IS 'Part Description/Specification';
 COMMENT ON COLUMN plm_part.status IS 'Status (ACTIVE/INACTIVE/OBSOLETE)';
 COMMENT ON COLUMN plm_part.crea_date IS 'Creation Date';
+COMMENT ON COLUMN plm_part.updt_date IS 'Update Date';

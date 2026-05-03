@@ -155,7 +155,7 @@ def generate_excel(data_path, output_path):
         ws.column_dimensions[ws.cell(row=1, column=i).column_letter].width = width
 
     wb.save(output_path)
-    print(f"✅ Generated: {output_path}")
+    print(f"[OK] Generated: {output_path}")
 
 
 def main():

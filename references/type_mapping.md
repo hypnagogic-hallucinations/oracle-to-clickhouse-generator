@@ -75,21 +75,21 @@ NUMBER(p,s) — has scale
 ## ClickHouse DDL Template
 
 ```sql
-CREATE TABLE {new_table_name} ON CLUSTER ch_cluster
+CREATE TABLE {product_suite}.{new_table_name} ON CLUSTER ch_cluster
 (
     {col1}    {type1},
     {col2}    {type2},
     -- ... all columns
 )
-ENGINE = ReplicatedMergeTree('/clickhouse/tables/{shard}/{new_table_name}', '{replica}')
-ORDER BY ({pk_col1}, {pk_col2})
-SETTINGS index_granularity = 8192;
+ENGINE = ReplicatedReplacingMergeTree('/clickhouse/tables/{shard}/{new_table_name}', '{replica}')
+ORDER BY ({pk_col1}, {pk_col2});
 
-GRANT SELECT ON {new_table_name} TO plm_pdmpi_ch ON CLUSTER ch_cluster;
+GRANT SELECT ON {product_suite}.{new_table_name} TO {product_suite}_{product}_ch ON CLUSTER ch_cluster;
 ```
 
 **Notes:**
 - `ON CLUSTER ch_cluster` appears on both CREATE TABLE and GRANT
-- ENGINE is `ReplicatedMergeTree` for clustered deployment
+- ENGINE is `ReplicatedReplacingMergeTree('/clickhouse/tables/{shard}/{table}', '{replica}')` — see SKILL.md for the authoritative template
+- Table name is prefixed with `{product_suite}.` (e.g. `plm.plm_part`)
 - `ORDER BY` uses renamed PK column names
 - If no PK defined in Oracle DDL, use first NOT NULL column and add a comment: `-- NOTE: No PK found in source DDL; using <col> as ORDER BY key`

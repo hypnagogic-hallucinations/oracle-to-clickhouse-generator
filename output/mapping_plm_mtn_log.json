@@ -1,0 +1,59 @@
+{
+    "new_table_name": "plm_mtn_log",
+    "columns": [
+        {
+            "orig_name": "LOG_ID",
+            "new_name": "log_id",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Log ID (Primary Key)",
+            "new_desc": "[Definition] Unique identifier for each maintenance log entry, serving as the primary key of the maintenance change log. [Sample Data] e.g. 'LOG-2024-00001', 'MTN-0099234'"
+        },
+        {
+            "orig_name": "PART_ID",
+            "new_name": "part_id",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Associated Part ID (Foreign Key)",
+            "new_desc": "[Definition] Foreign key referencing the part master record that this maintenance log entry is associated with. [Reference] References PLM_PART.PART_ID. [Sample Data] e.g. 'P-2024-001'"
+        },
+        {
+            "orig_name": "MTN_ENG",
+            "new_name": "mtn_user",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Maintenance/Responsible Engineer Code",
+            "new_desc": "[Definition] Employee code or login ID of the maintenance engineer responsible for performing or logging the maintenance action. [Reference] References EMPLOYEE_MASTER.EMP_CODE. [Sample Data] e.g. 'ENG001', 'JOHN.SMITH'"
+        },
+        {
+            "orig_name": "ACTION_TYPE",
+            "new_name": "action_type",
+            "orig_type": "VARCHAR2(30) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Action Type (REPAIR/UPDATE/INSPECT)",
+            "new_desc": "[Definition] Categorizes the type of maintenance action performed on the associated part. Allowable values: REPAIR, UPDATE, INSPECT. [Sample Data] e.g. 'REPAIR', 'INSPECT'"
+        },
+        {
+            "orig_name": "LOG_DESC",
+            "new_name": "log_desc",
+            "orig_type": "VARCHAR2(500)",
+            "new_type": "Nullable(String)",
+            "nullable": "Yes",
+            "orig_desc": "Detailed Maintenance Description",
+            "new_desc": "[Definition] Free-text narrative describing the maintenance work performed, findings, or corrective actions taken during the maintenance event. [Sample Data] e.g. 'Replaced damaged substrate layer; re-tested OK'"
+        },
+        {
+            "orig_name": "CREA_DATE",
+            "new_name": "create_dt",
+            "orig_type": "DATE NOT NULL",
+            "new_type": "DateTime",
+            "nullable": "No",
+            "orig_desc": "Creation Date",
+            "new_desc": "[Definition] Timestamp recording when this maintenance log entry was created in the system. [Sample Data] e.g. 2024-03-10 09:15:42"
+        }
+    ]
+}

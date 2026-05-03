@@ -19,6 +19,10 @@ If the prefix or suffix attached to code consists of two characters or fewer (�
 | Original Segment | Replacement | Notes |
 |---|---|---|
 | `code` | `cd` | e.g. `cust_code` → `cust_cd` |
+| `change` | `chg` | e.g. `change_control` → `chg_control` |
+| `account` | `acct` | e.g. `account_no` → `acct_no` |
+| `busi` | `biz` | e.g. `busi_unit` → `biz_unit` |
+| `quantity` | `qty` | e.g. `product_quantity` → `prod_qty` |
 | `fact` | `fab` | e.g. `fact_code` → `fab_cd` |
 | `quantity` | `qty` | e.g. `product_quantity` → `prod_qty` |
 | `stat` | `status` | e.g. `stat_code` → `status_cd` |
@@ -30,6 +34,12 @@ If the prefix or suffix attached to code consists of two characters or fewer (�
 | `proc` | `process` | expand abbreviation |
 | `indu` | `industry` | expand abbreviation |
 | `crea` | `create` | expand abbreviation |
+| `remk` | `remark` | expand abbreviation |
+| `updt` | `update` | expand abbreviation |
+| `cnfm` | `confirm` | expand abbreviation |
+| `cnfrm` | `confirm` | expand abbreviation |
+| `rlse` | `release` | expand abbreviation |
+| `mkt` | `market` | expand abbreviation |
 | `eng` | `user` | engineer, replace with user |
 | `function` | `func` | product_function → prod_func|
 | `manufactor` | `mfg` | also covers `manufacturer` |

@@ -1,0 +1,21 @@
+# Project Configuration
+# Edit this file to configure product-specific settings before running any scripts.
+# This file is read by SKILL.md for placeholder URN generation.
+
+# ── Product Identity ──────────────────────────────────────────────────────────
+product_suite: plm      # e.g. plm, blm, scm
+product: pdmpi          # e.g. pdmpi, pdmti, genpdm, ntbd
+
+# ── DataHub URN Templates ─────────────────────────────────────────────────────
+# NOTE: All three columns (PROD URN / STG URN / TEST URN) in the DataHub upload
+# template share the SAME URN value. The URN identifies the ClickHouse dataset;
+# it does not distinguish between deployment environments.
+# Use {product_suite} and {table_name} as placeholders.
+datahub:
+  urn_template: "urn:li:dataset:(urn:li:dataPlatform:clickhouse,scmdp.{product_suite}.{table_name},PROD)"
+  # All three template columns (prod/stg/test) use the value above.
+
+# ── ClickHouse Cluster ────────────────────────────────────────────────────────
+clickhouse:
+  cluster: ch_cluster
+  engine: "ReplicatedReplacingMergeTree('/clickhouse/tables/{shard}/{table}', '{replica}')"

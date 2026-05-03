@@ -1,0 +1,68 @@
+{
+    "new_table_name": "plm_service_route",
+    "columns": [
+        {
+            "orig_name": "ROUTE_ID",
+            "new_name": "route_id",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Route ID (Primary Key)",
+            "new_desc": "[Definition] Unique identifier for a service or production route configuration record. Serves as the primary key of the route table. [Sample Data] e.g. 'RT-2024-001', 'SR-N5-0042'"
+        },
+        {
+            "orig_name": "PART_ID",
+            "new_name": "part_id",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Associated Part ID (Foreign Key)",
+            "new_desc": "[Definition] Foreign key referencing the part master record that this service route is configured for. [Reference] References PLM_PART.PART_ID. [Sample Data] e.g. 'P-2024-001'"
+        },
+        {
+            "orig_name": "FACT_CODE",
+            "new_name": "fab_cd",
+            "orig_type": "VARCHAR2(20) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Factory Code",
+            "new_desc": "[Definition] Code identifying the fabrication facility (fab) where this service route operation is executed. [Reference] References FACTORY_MASTER.FACT_CODE. [Sample Data] e.g. 'FAB12', 'FAB18A'"
+        },
+        {
+            "orig_name": "SERV_FLOW",
+            "new_name": "service_flow",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Service/Production Flow Name",
+            "new_desc": "[Definition] Name of the service or production flow that this route belongs to, defining the high-level process sequence for the associated part. [Sample Data] e.g. 'LOGIC_N5_FLOW', 'BACKEND_ASSY'"
+        },
+        {
+            "orig_name": "SERV_STAG",
+            "new_name": "service_stage",
+            "orig_type": "VARCHAR2(20) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Service/Production Stage",
+            "new_desc": "[Definition] Specific stage within the service flow at which this route step is performed, enabling granular process step traceability. [Sample Data] e.g. 'ETCH', 'CMP', 'FINAL_TEST'"
+        },
+        {
+            "orig_name": "SEQ_NUM",
+            "new_name": "seq_no",
+            "orig_type": "NUMBER(3) NOT NULL",
+            "new_type": "Int16",
+            "nullable": "No",
+            "orig_desc": "Stage Sequence Number",
+            "new_desc": "[Definition] Integer sequence number defining the execution order of this route stage within its service flow. Lower numbers execute first. [Sample Data] e.g. 1, 2, 10"
+        },
+        {
+            "orig_name": "CREA_DATE",
+            "new_name": "create_dt",
+            "orig_type": "DATE NOT NULL",
+            "new_type": "DateTime",
+            "nullable": "No",
+            "orig_desc": "Creation Date",
+            "new_desc": "[Definition] Timestamp recording when this service route configuration record was first created. [Sample Data] e.g. 2024-02-01 10:00:00"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "new_table_name": "plm_part",
+    "columns": [
+        {
+            "new_name": "part_id",
+            "description": "[Definition] Unique identifier for a part or product master record in the PLM system. Serves as the primary key for all part-related data entities. [Reference] Referenced by PLM_MTN_LOG.PART_ID and PLM_SERVICE_ROUTE.PART_ID. [Sample Data] e.g. 'P-2024-001', 'A-IC-99923'"
+        },
+        {
+            "new_name": "cust_cd",
+            "description": "[Definition] Code identifying the customer associated with this part. Used to link the part master to customer-specific configurations. [Reference] References CUSTOMER_MASTER.CUST_CODE. [Sample Data] e.g. 'TSMC01', 'NVDA02'"
+        },
+        {
+            "new_name": "tech_cd",
+            "description": "[Definition] Technology or process node code assigned to this part, indicating the manufacturing process generation or technology family. [Reference] References TECHNOLOGY_MASTER.TECH_CODE. [Sample Data] e.g. 'N5', 'N3E', 'N7P'"
+        },
+        {
+            "new_name": "part_desc",
+            "description": "[Definition] Free-text description or specification summary for the part, covering design intent, functional purpose, or material specification. [Sample Data] e.g. '5nm Logic Die - High Performance', 'Package Substrate Rev B'"
+        },
+        {
+            "new_name": "cust_id",
+            "description": "[Definition] Foreign identifier of the owning customer entity, used to enforce customer-level data isolation and access control. [Reference] References CUSTOMER.CUSTOMER_ID. [Sample Data] e.g. 'CUST-001', 'CUST-042'"
+        },
+        {
+            "new_name": "cust_part_no",
+            "description": "[Definition] Customer-assigned part number used by the customer's own internal systems. Enables cross-reference between customer BOM and PLM part master. [Sample Data] e.g. 'CPN-A-00123', 'NVDA-X-99021'"
+        },
+        {
+            "new_name": "status",
+            "description": "[Definition] Lifecycle status of the part, indicating its current state in the PLM workflow. Allowable values: ACTIVE, INACTIVE, OBSOLETE. [Sample Data] e.g. 'ACTIVE', 'OBSOLETE'"
+        },
+        {
+            "new_name": "create_dt",
+            "description": "[Definition] Timestamp recording when this part master record was first created in the system. [Sample Data] e.g. 2024-01-15 08:30:00"
+        },
+        {
+            "new_name": "update_dt",
+            "description": "[Definition] Timestamp recording the most recent update to this part master record. Automatically updated on any field change. [Sample Data] e.g. 2024-11-20 14:05:33"
+        }
+    ]
+}

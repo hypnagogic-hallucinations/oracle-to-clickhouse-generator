@@ -1,0 +1,86 @@
+{
+    "new_table_name": "plm_part",
+    "columns": [
+        {
+            "orig_name": "PART_ID",
+            "new_name": "part_id",
+            "orig_type": "VARCHAR2(50) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Part ID (Primary Key)",
+            "new_desc": "[Definition] Unique identifier for a part or product master record in the PLM system. Serves as the primary key for all part-related data entities. [Reference] Referenced by PLM_MTN_LOG.PART_ID and PLM_SERVICE_ROUTE.PART_ID. [Sample Data] e.g. 'P-2024-001', 'A-IC-99923'"
+        },
+        {
+            "orig_name": "CUST_CODE",
+            "new_name": "cust_cd",
+            "orig_type": "VARCHAR2(20) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "Customer Code",
+            "new_desc": "[Definition] Code identifying the customer associated with this part. Used to link the part master to customer-specific configurations. [Reference] References CUSTOMER_MASTER.CUST_CODE. [Sample Data] e.g. 'TSMC01', 'NVDA02'"
+        },
+        {
+            "orig_name": "TECH_CODE",
+            "new_name": "tech_cd",
+            "orig_type": "VARCHAR2(30)",
+            "new_type": "Nullable(String)",
+            "nullable": "Yes",
+            "orig_desc": "Technology/Process Code",
+            "new_desc": "[Definition] Technology or process node code assigned to this part, indicating the manufacturing process generation or technology family. [Reference] References TECHNOLOGY_MASTER.TECH_CODE. [Sample Data] e.g. 'N5', 'N3E', 'N7P'"
+        },
+        {
+            "orig_name": "PART_DESC",
+            "new_name": "part_desc",
+            "orig_type": "VARCHAR2(200)",
+            "new_type": "Nullable(String)",
+            "nullable": "Yes",
+            "orig_desc": "Part Description/Specification",
+            "new_desc": "[Definition] Free-text description or specification summary for the part, covering design intent, functional purpose, or material specification. [Sample Data] e.g. '5nm Logic Die - High Performance', 'Package Substrate Rev B'"
+        },
+        {
+            "orig_name": "CUSTOMER_ID",
+            "new_name": "cust_id",
+            "orig_type": "VARCHAR2(20) NOT NULL",
+            "new_type": "String",
+            "nullable": "No",
+            "orig_desc": "",
+            "new_desc": "[Definition] Foreign identifier of the owning customer entity, used to enforce customer-level data isolation and access control. [Reference] References CUSTOMER.CUSTOMER_ID. [Sample Data] e.g. 'CUST-001', 'CUST-042'"
+        },
+        {
+            "orig_name": "CUST_PART_NO",
+            "new_name": "cust_part_no",
+            "orig_type": "VARCHAR2(50)",
+            "new_type": "Nullable(String)",
+            "nullable": "Yes",
+            "orig_desc": "",
+            "new_desc": "[Definition] Customer-assigned part number used by the customer's own internal systems. Enables cross-reference between customer BOM and PLM part master. [Sample Data] e.g. 'CPN-A-00123', 'NVDA-X-99021'"
+        },
+        {
+            "orig_name": "STATUS",
+            "new_name": "status",
+            "orig_type": "VARCHAR2(10)",
+            "new_type": "Nullable(String)",
+            "nullable": "Yes",
+            "orig_desc": "Status (ACTIVE/INACTIVE/OBSOLETE)",
+            "new_desc": "[Definition] Lifecycle status of the part, indicating its current state in the PLM workflow. Allowable values: ACTIVE, INACTIVE, OBSOLETE. [Sample Data] e.g. 'ACTIVE', 'OBSOLETE'"
+        },
+        {
+            "orig_name": "CREA_DATE",
+            "new_name": "create_dt",
+            "orig_type": "DATE NOT NULL",
+            "new_type": "DateTime",
+            "nullable": "No",
+            "orig_desc": "Creation Date",
+            "new_desc": "[Definition] Timestamp recording when this part master record was first created in the system. [Sample Data] e.g. 2024-01-15 08:30:00"
+        },
+        {
+            "orig_name": "UPDT_DATE",
+            "new_name": "update_dt",
+            "orig_type": "DATE NOT NULL",
+            "new_type": "DateTime",
+            "nullable": "No",
+            "orig_desc": "Update Date",
+            "new_desc": "[Definition] Timestamp recording the most recent update to this part master record. Automatically updated on any field change. [Sample Data] e.g. 2024-11-20 14:05:33"
+        }
+    ]
+}
